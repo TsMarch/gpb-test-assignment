@@ -1,3 +1,5 @@
+# Получить JSON из внешнего API ендпоинт: GET https://api.gazprombank.ru/very/important/docs?documents_date={"начало дня сегодня в виде таймстемп"}
+
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 import datetime
@@ -10,6 +12,7 @@ kwargs = {
     'retry_delay': datetime.timedelta(minutes=1),
     'depends_on_past': False,
 }
+
 
 def hook_function(**kwargs):
     start_date = kwargs["start_date"]
