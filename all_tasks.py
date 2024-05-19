@@ -70,8 +70,9 @@ def task4():
      """
 
     path = '' # подставить свой путь и добавить path в переменную files
-
-    files = os.listdir()
+    if not path:
+        print("укажите путь")
+    files = os.listdir(path)
 
     # собираю список из файлов в папке. отмечу, что по условию необходимо удалять только файлы, соответственно папки не войдут в список
     files = [os.path.join(path, file) for file in files if os.path.isfile(file)]
